@@ -1,0 +1,46 @@
+SORU: Bellekte istediğin adrese 5 tane 10 ekle ve onları işle sonra sakla	
+        LDX #$150
+	LDAA #10
+	STAA $21,X
+	LDAA #10
+	STAA $22,X
+	LDAA #10
+	STAA $23,X
+	LDAA #10
+	STAA $24,X
+	LDAB #5
+L	LDAA 20,X
+	ASLA
+	ADDA 20,X
+	ADDA #5
+	STAA 30,X
+	INX 
+	DECB
+	CMPB #0
+	BNE L
+	END
+
+
+Soru: Yukarıdaki soruyu ASLA olmadan çöz
+
+	LDX #$150
+	LDAA #10
+	STAA $21,X
+	LDAA #10
+	STAA $22,X
+	LDAA #10
+	STAA $23,X
+	LDAA #10
+	STAA $24,X
+	LDAB #5
+L	LDAA 20,X
+	ADDA 20,X
+	ADDA 20,X
+	ADDA 20,X
+	ADDA #5
+	STAA 30,X
+	INX 
+	DECB
+	CMPB #0
+	BNE L
+	END

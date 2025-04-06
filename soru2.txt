@@ -1,0 +1,34 @@
+Soru: Bellekteki 120h ve 130h yerlerine 5 ile 10 u yükle sonra döngü ile bu değerleri toplayarak 100h adresine kaydet.  
+
+ldx #$100
+	LDAA #10
+	STAA $20,X
+	LDAB #5
+	STAB $30,X	
+	LDAA #10
+	STAA $21,X
+	LDAB #5
+	STAB $31,X
+	LDAA #10
+	STAA $22,X
+	LDAB #5
+	STAB $32,X
+	LDAA #10
+	STAA $23,X
+	LDAB #5
+	STAB $33,X
+	CLRB
+    LDAB #4
+
+L   LDAA $20,X
+    ADDA $30,X
+    ADDA $100
+    STAA $100
+    INX
+    DECB
+    CMPB #0
+    BNE L
+    .END
+
+
+

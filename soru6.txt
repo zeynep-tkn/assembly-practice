@@ -1,0 +1,30 @@
+SORU: FOR DÖNGÜSÜ İLE SAYI TEKSE *2 ÇİFTSE /2 YAP
+
+     LDAA #14
+     STAA $30
+     LDAA #3
+     STAA $31
+     LDAA #7
+     STAA $32
+   
+     LDAB #0
+     LDX #0
+
+LOOP LDAA $30,X
+     ANDA #1
+     BNE ODD
+
+EVEN LDAA $30,X
+     LSRA
+     STAA $40,X
+     BRA CTRL
+
+ODD  LDAA $30,X
+     ASLA
+     STAA $40,X
+     BRA CTRL
+
+CTRL INCB
+     CMPB #3
+     INX
+     BMI LOOP

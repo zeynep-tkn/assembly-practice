@@ -1,0 +1,30 @@
+  LDX #$100
+  LDAA #10
+  STAA $20,X
+  LDAA #15
+  STAA $21,X
+  LDAA #20
+  STAA $22,X
+  LDAA #25
+  STAA $23,X
+  LDAA #30
+  STAA $24,X
+  LDAA 20,X
+
+  LDAB #5
+L ADDA 21,X
+  DECB
+  INX
+  CMPB #0
+  BNE L
+  
+  LDAB #0
+  STAA $200
+  LDAA 200
+S SUBA #5
+  BMI E
+  INCB
+  BRA S
+ 
+E STAB $200
+  END

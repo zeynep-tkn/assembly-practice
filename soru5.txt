@@ -1,0 +1,28 @@
+SORU:Bir akıllı sera ortamına entegre edilmiş mikrodenetleyici tabanlı bir sistem hayal edin. Serada, farklı noktalarda sıcaklık sensörleri bulunmakta ve bu sensörler belirli aralıklarla ham veri okumaları yapmaktadır. Bu ham okumaların otomatik kontrol ve karar alma süreçlerinde anlamlı sıcaklık verilerine dönüştürülmesi gerekir. Bunun için her sensör verisi, bir ölçekleme ve kalibrasyon işleminden geçirilmelidir.
+
+int A[] = {8, 12, 6, 18, 15};  // Sıcaklık sensörlerinden gelen ham veriler
+int B[5];                      // Kalibre edilmiş verilerin saklandığı dizi
+int i; 
+
+   LDX  #$060
+   LDAA #8
+   STAA $10,X
+   LDAA #12
+   STAA $11,X
+   LDAA #6
+   STAA $12,X
+   LDAA #18
+   STAA $13,X
+   LDAA #15
+   STAA $14,X
+   LDAB #5
+L  LDAA $10,X
+   ASLA
+   ADDA 10,X
+   ADDA #5
+   STAA $20,X
+   INX
+   DECB
+   CMPB #0
+   BNE L
+   END

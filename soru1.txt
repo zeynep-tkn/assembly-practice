@@ -1,0 +1,29 @@
+ SORU1:Y=4X-9
+
+ LDAA #2
+ STAA $E0
+ ASLA
+ ASLA
+ LDAB #9
+ SBA
+ STAA $100
+
+
+SORU2:   
+
+        ldaa #5
+        ldab #5
+        cba
+        beq label
+        asla 
+        aslb
+        bra finish
+
+label   INCA
+        INCB
+
+finish  STAA $20
+        STAB $30
+
+        END
+
